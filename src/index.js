@@ -4,11 +4,18 @@ import './index.css';
 import App from './App';
 import {ChakraProvider} from "@chakra-ui/react"
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TodosApp from './routes/TodosApp';
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider >
-    <App />
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App/>}/>
+        <Route path="todo-app" element={<TodosApp/>}/>
+      </Routes>
+    </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
