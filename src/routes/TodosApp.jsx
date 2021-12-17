@@ -1,7 +1,8 @@
-import { Box, Button, Circle, Flex, FormControl, Heading, Input, InputGroup, InputRightElement, Menu, MenuButton, MenuItem, MenuList, Stack } from "@chakra-ui/react";
+import { Box, Circle, Flex, FormControl, Heading, Input, InputGroup, InputRightElement, Stack } from "@chakra-ui/react";
 import { pxToRem } from "../utils/theme.utils";
-import {AddIcon, ChatIcon, ChevronDownIcon} from "@chakra-ui/icons"
+import {AddIcon, ChatIcon} from "@chakra-ui/icons"
 import TodoListFolder from "../component/TodoListFolder";
+import TodoContent from "./TodoContent";
 export default function TodosApp() {
     return (
         <Flex direction={"row"} height={'100vh'} overflow={'hidden'}>
@@ -23,21 +24,23 @@ export default function TodosApp() {
                 <Flex direction={'row'} wrap={'nowrap'} align={'center'} justify={'center'} h={pxToRem(205)} shadow={'base'}>
                     <Box w={pxToRem(380)}>
                     <FormControl as='form'>
-                        <InputGroup variant={'filled'} size={'sm'}>
-                            <Input placeholder="Enter todo job..."/>
+                        <InputGroup variant={'filled'} size={'sm'} >
+                            <Input placeholder="Enter todo job..." _focus={{borderRadius: pxToRem(5)}}/>
                             <InputRightElement children={
                             <Circle size={pxToRem(30)} 
                                 bg={"orange"} 
                                 color={"white"} 
                                 cursor={"pointer"} 
-                                _hover={{bg: 'orange.300'}}>
-                                    <AddIcon w={pxToRem(20)} h={pxToRem(20)}/>
+                                _hover={{bg: 'orange.300'}}
+                                _active={{bg: 'orange.200'}}>
+                                    <AddIcon w={pxToRem(20)} h={pxToRem(20)} _active={{w: '2', h: '2'}}/>
                                 </Circle>}
                             />
                         </InputGroup>
                     </FormControl>
                     </Box>
                 </Flex>
+                <TodoContent/>
             </Box>
         </Flex>
     )
