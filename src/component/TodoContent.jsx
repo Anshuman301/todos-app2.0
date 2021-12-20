@@ -29,7 +29,7 @@ export default function TodoContent() {
   const text = !!folder
     ? "Todo folder selected. Now add todo in the folder"
     : "No todo folder selected. Please select first or create one.";
-  if (!folderTodoList.length)
+  if (!folderTodoList.data.length)
     return (
       <Center p={pxToRem(20)}>
         <Text>{text}</Text>
@@ -37,7 +37,7 @@ export default function TodoContent() {
     );
   return (
     <Flex direction="column" m={`${pxToRem(10)} ${pxToRem(20)}`} align="center">
-      <Box alignSelf="flex-end">
+      {/* <Box alignSelf="flex-end">
         <Menu>
           <MenuButton
             h={pxToRem(40)}
@@ -53,24 +53,22 @@ export default function TodoContent() {
             <MenuItem as="li">Incomplete</MenuItem>
           </MenuList>
         </Menu>
-      </Box>
-      <Box>
-        <Table variant="simple">
-          <Thead>
+      </Box> */}
+        <Table variant="unstyled" size={'sm'}>
+          <Thead borderBottom={`${pxToRem(2)} solid silver`}>
             <Tr>
-              <Th isNumeric>Id</Th>
-              <Th>Todo</Th>
-              <Th>Created At</Th>
-              <Th>Status</Th>
+              <Th isNumeric p={pxToRem(5)}>Id</Th>
+              <Th p={pxToRem(5)}>Todo</Th>
+              <Th p={pxToRem(5)}>Created At</Th>
+              <Th p={pxToRem(5)}>Status</Th>
             </Tr>
           </Thead>
           <Tbody>
-            {folderTodoList.map(({ ...rest }) => (
-              <TableContent {...rest} />
+            {folderTodoList.data.map(({ ...rest }, idx) => (
+              <TableContent {...rest} key={idx} id={idx+1}/>
             ))}
           </Tbody>
         </Table>
-      </Box>
     </Flex>
   );
 }

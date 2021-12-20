@@ -21,17 +21,17 @@ export const folderTodoListState = selector({
   get: ({ get }) => {
     const folder = get(folderState);
     const todoList = get(todoListState);
-    return todoList[folder] || [];
+    return todoList[folder] || {data: []};
   },
   set: ({ set, get }, newValue) => {
     const folder = get(folderState);
     const todoList = get(todoListState);
     if (!todoList[folder])
-      set(todoListState, { ...todoList, [folder]: [newValue] });
+      set(todoListState, { ...todoList, [folder]: {data: newValue}});
     else
       set(todoListState, {
         ...todoList,
-        [folder]: [...todoList[folder], newValue]
+        [folder]: {data: newValue}
       });
   }
 });
@@ -46,13 +46,12 @@ export default function InputTodo() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!input.trim()) return;
-    setFolderTodoList({
-      id: folderTodoList.length + 1,
+    setFolderTodoList([...folderTodoList.data,{
       todo: input.trim(),
       createdAt:
         new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
       isCompleted: false
-    });
+    }]);
     setInput("");
   };
   return (
