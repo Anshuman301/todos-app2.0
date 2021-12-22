@@ -10,6 +10,7 @@ import React from "react";
 import { atom, selector, useRecoilState, useRecoilValue } from "recoil";
 import { pxToRem } from "../utils/theme.utils";
 import { folderState } from "./FolderItem";
+import { editTodoState } from "./TableContent";
 
 export const todoListState = atom({
   key: "todoListState",
@@ -26,13 +27,7 @@ export const folderTodoListState = selector({
   set: ({ set, get }, newValue) => {
     const folder = get(folderState);
     const todoList = get(todoListState);
-    if (!todoList[folder])
-      set(todoListState, { ...todoList, [folder]: {data: newValue}});
-    else
-      set(todoListState, {
-        ...todoList,
-        [folder]: {data: newValue}
-      });
+    set(todoListState, { ...todoList, [folder]: {data: newValue}});
   }
 });
 export default function InputTodo() {
@@ -40,18 +35,35 @@ export default function InputTodo() {
   const [folderTodoList, setFolderTodoList] = useRecoilState(
     folderTodoListState
   );
+  const [editTodo, setEditTodo] = useRecoilState(editTodoState);
   const [input, setInput] = React.useState("");
-  console.log(folder);
-  console.log(folderTodoList);
+  const inputRef = React.useRef(null);
+  console.log(editTodo);
+  React.useEffect(() =>{
+    if(!isNaN(editTodo)) {
+      setInput(folderTodoList.data[editTodo].todo);
+      inputRef.current.focus();
+    }
+  }, [editTodo])
+  React.useEffect(() => {
+    if(folder)
+      inputRef.current.focus();
+  }, [folder])
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!input.trim()) return;
-    setFolderTodoList([...folderTodoList.data,{
+    const newValue = {
       todo: input.trim(),
       createdAt:
         new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
       isCompleted: false
-    }]);
+    };
+    if(!isNaN(editTodo)) {
+      setFolderTodoList([...folderTodoList.data.slice(0, editTodo), newValue,...folderTodoList.data.slice(editTodo+1)])
+      setEditTodo(undefined);
+    }
+    else
+    setFolderTodoList([...folderTodoList.data, newValue]);
     setInput("");
   };
   return (
@@ -62,6 +74,7 @@ export default function InputTodo() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           _focus={{ borderRadius: pxToRem(5) }}
+          ref={inputRef}
         />
         <InputRightElement
           children={
