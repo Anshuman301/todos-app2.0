@@ -15,7 +15,7 @@ ReactDOM.render(
     <ChakraProvider >
       <BrowserRouter>
       <Routes>
-        <Route path="/todos-app2.0" element={<App/>}/>
+        <Route path="todos-app2.0" element={<App/>}/>
         <Route path="/todos-app2.0/todo-app" element={<TodosApp/>}/>
         <Route path="*" element={<Box as="main" p={pxToRem(5)}><Text>There's nothing here</Text></Box>}/>
       </Routes>
