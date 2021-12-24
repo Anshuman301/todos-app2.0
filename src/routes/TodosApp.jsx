@@ -1,10 +1,12 @@
-import { Box, Flex, Heading, Stack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Stack, Switch, useColorMode } from "@chakra-ui/react";
 import { pxToRem } from "../utils/theme.utils";
 import { ChatIcon } from "@chakra-ui/icons";
 import TodoListFolder from "../component/TodoListFolder";
 import TodoContent from "../component/TodoContent";
 import InputTodo from "../component/InputTodo";
 export default function TodosApp() {
+  const {colorMode,toggleColorMode} = useColorMode();
+  const isChecked = colorMode === 'dark';
   return (
     <Flex direction={"row"} height={"100vh"} overflow={"hidden"}>
       <Box w={pxToRem(280)} className='globalSideBg'>
@@ -31,13 +33,16 @@ export default function TodosApp() {
       </Box>
       <Box flex={1}>
         <Flex
-          direction={"row"}
+          direction={"column"}
           wrap={"nowrap"}
           align={"center"}
-          justify={"center"}
+          justify={"flex-start"}
           h={pxToRem(205)}
           shadow={"base"}
         >
+          <Box alignSelf={'flex-end'} mt={pxToRem(20)} mb={pxToRem(20)} mr={pxToRem(20)}>
+            <Switch isChecked={isChecked} onChange={toggleColorMode}/>
+          </Box>
           <Box w={pxToRem(380)}>
             <InputTodo />
           </Box>
