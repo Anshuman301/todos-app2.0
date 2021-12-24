@@ -21,7 +21,7 @@ export default function TodoListFolder() {
         setFolderName(e.target.value);
     }
     return (
-        <Flex direction={"column"}>
+        <Flex direction={"column"} mt={pxToRem(10)}>
             <FormControl onSubmit={handleSubmit} as='form'>
                 <Stack direction={"row"} align={"end"} justify={"space-evenly"} ml={pxToRem(20)}>
                     <Input variant='flushed' value={folderName} placeholder='Enter todo folder name...' size={'xs'} w={pxToRem(200)} onChange={handleChange}  />

@@ -1,22 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import {Box, ChakraProvider, Text} from "@chakra-ui/react"
+import {Box, ChakraProvider, ColorModeScript, Text} from "@chakra-ui/react"
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import TodosApp from './routes/TodosApp';
 import { pxToRem } from './utils/theme.utils';
 import { RecoilRoot } from 'recoil';
+import theme from './theme/index.theme';
 
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-    <ChakraProvider >
+    <ChakraProvider theme={theme}>
       <BrowserRouter>
       <Routes>
-        {/* <Route path="todos-app2.0" element={<App/>}/> */}
-        <Route path="todos-app2.0" element={<TodosApp/>}/>
+        <Route path="todos-app2.0" element={
+        <>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
+          <TodosApp/>
+        </>
+      }/>
         <Route path="*" element={<Box as="main" p={pxToRem(5)}><Text>There's nothing here</Text></Box>}/>
       </Routes>
     </BrowserRouter>

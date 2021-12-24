@@ -1,14 +1,9 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
   Center,
   Checkbox,
   Flex,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   Table,
   Tbody,
   Text,
@@ -50,7 +45,7 @@ export default function TodoContent() {
     );
   return (
     <Flex direction="column" m={`${pxToRem(10)} ${pxToRem(20)}`} align="center">
-      <Flex direction={'row'} wrap={'nowrap'} alignSelf={'flex-start'} justify={'space-between'} mb={pxToRem(10)}>
+      <Flex direction={'row'} wrap={'nowrap'} alignSelf={'flex-start'} justify={'space-between'} mb={pxToRem(20)}>
         <Box>
           <Button h={pxToRem(40)} onClick={handleChangeStatus} isDisabled={!isCheckList.some(Boolean)}>Change Status</Button>
         </Box>

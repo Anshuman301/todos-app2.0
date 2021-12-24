@@ -7,7 +7,7 @@ import InputTodo from "../component/InputTodo";
 export default function TodosApp() {
   return (
     <Flex direction={"row"} height={"100vh"} overflow={"hidden"}>
-      <Box w={pxToRem(280)} bgGradient="linear(to-tr, orange.100, orange.200)">
+      <Box w={pxToRem(280)} className='globalSideBg'>
         <Stack direction={"column"} align={"start"} ml={pxToRem(20)}>
           <Stack direction={"row"} align={"center"}>
             <ChatIcon
@@ -29,7 +29,7 @@ export default function TodosApp() {
         </Stack>
         <TodoListFolder />
       </Box>
-      <Box flex={1} bgGradient="linear(to-t, green.200, green.500)">
+      <Box flex={1}>
         <Flex
           direction={"row"}
           wrap={"nowrap"}
