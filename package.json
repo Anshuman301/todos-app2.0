@@ -2,6 +2,7 @@
   "name": "todos-app2.0",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Anshuman301.github.io/todos-app2.0",
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.7.3",
@@ -19,6 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
