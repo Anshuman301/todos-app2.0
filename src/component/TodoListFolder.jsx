@@ -2,7 +2,7 @@ import { AddIcon } from "@chakra-ui/icons";
 import { Box, Circle, Flex, FormControl, Input, List, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { useRecoilState } from "recoil";
-import { pxToRem } from "../utils/theme.utils";
+import { pxToRem, pxToVh, pxToVw } from "../utils/theme.utils";
 import FolderItem, { folderState } from "./FolderItem";
 
 export default function TodoListFolder() {
@@ -21,10 +21,10 @@ export default function TodoListFolder() {
         setFolderName(e.target.value);
     }
     return (
-        <Flex direction={"column"} mt={pxToRem(10)}>
+        <Flex direction={"column"} mt={pxToVh(10)}>
             <FormControl onSubmit={handleSubmit} as='form'>
-                <Stack direction={"row"} align={"end"} justify={"space-evenly"} ml={pxToRem(20)}>
-                    <Input variant='flushed' value={folderName} placeholder='Enter todo folder name...' size={'xs'} w={pxToRem(200)} onChange={handleChange}  />
+                <Stack direction={"row"} align={"end"} justify={"space-evenly"} ml={pxToVw(20)}>
+                    <Input variant='flushed' value={folderName} placeholder='Enter todo folder name...' size={'xs'} w={pxToVw(200)} onChange={handleChange} layerStyle={'base'} />
                     <Circle size={pxToRem(30)} bg={"orange"} color={"white"} cursor={"pointer"} _hover={{bg: 'orange.300'}}
                     _active={{bg: 'orange.200'}}
                     onClick={handleSubmit}>
@@ -36,11 +36,11 @@ export default function TodoListFolder() {
                 listFolder.length ?
                 (
                     <Flex direction={'column'}>
-                        <Box pl={pxToRem(20)}>
-                            <Text textDecoration={"underline"} mt={pxToRem(10)}>TodoFolder</Text>
+                        <Box pl={pxToVw(20)}>
+                            <Text mt={pxToVh(10)} textStyle={'h5'}>TodoFolder</Text>
                         </Box>
                         <Box>
-                        <List p={`0 ${pxToRem(5)}`}>
+                        <List p={`0 ${pxToVw(5)}`}>
                             {
                                 listFolder.map((item, idx) => <FolderItem key={idx} name={item}/>)
                             }

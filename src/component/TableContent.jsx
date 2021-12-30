@@ -1,7 +1,7 @@
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { Checkbox, Circle, HStack, Td, Tr } from "@chakra-ui/react";
 import { atom, useRecoilState } from "recoil";
-import { pxToRem } from "../utils/theme.utils";
+import { pxToRem, pxToVw } from "../utils/theme.utils";
 import { folderTodoListState } from "./InputTodo";
 
 export const editTodoState = atom({
@@ -29,7 +29,7 @@ export default function TableContent(props) {
             <EditIcon w={pxToRem(20)} h={pxToRem(20)} color= 'blackAlpha.500' mr={pxToRem(2.5)} _active={{w:'2', h:'2'}}/>
           </Circle>
           <Circle size={pxToRem(30)} _hover={{ bg: 'green.400'}} onClick={handleDelete}>
-            <DeleteIcon color='red.700' ml={pxToRem(2.5)} w={pxToRem(20)} h={pxToRem(20)} _active={{w:'2', h:'2'}}/>
+            <DeleteIcon color='red.700' ml={pxToVw(2.5)} w={pxToRem(20)} h={pxToRem(20)} _active={{w:'2', h:'2'}}/>
           </Circle>
         </HStack>
       </Td>

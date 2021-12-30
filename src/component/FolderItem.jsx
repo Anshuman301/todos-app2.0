@@ -1,6 +1,6 @@
 import { ListItem, Text } from "@chakra-ui/react";
 import { atom, useRecoilState } from "recoil";
-import { pxToRem } from "../utils/theme.utils";
+import { pxToRem, pxToVw } from "../utils/theme.utils";
 
 export const folderState = atom({
   key: "folderState",
@@ -15,12 +15,11 @@ export default function FolderItem({ name }) {
       bg={folder === name ? "orange.200" : ""}
       borderRadius={pxToRem(5)}
       cursor={"pointer"}
-      _hover={{ bg: folder !== name ? "orange.200" : "" }}
       onClick={() => {
         setFolderState(name);
       }}
     >
-      <Text pl={pxToRem(15)}>{name}</Text>
+      <Text pl={pxToVw(15)} textStyle={'p'} fontWeight={'bold'} layerStyle={'selected'}>{name}</Text>
     </ListItem>
   );
 }

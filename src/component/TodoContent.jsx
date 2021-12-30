@@ -14,7 +14,7 @@ import {
 import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { folderState } from "../component/FolderItem";
-import { pxToRem } from "../utils/theme.utils";
+import { pxToRem, pxToVh, pxToVw } from "../utils/theme.utils";
 import { folderTodoListState } from "./InputTodo";
 import TableContent from "./TableContent";
 
@@ -40,14 +40,14 @@ export default function TodoContent() {
   if (!folderTodoList.data.length)
     return (
       <Center p={pxToRem(20)}>
-        <Text>{text}</Text>
+        <Text textStyle={'h6'}>{text}</Text>
       </Center>
     );
   return (
-    <Flex direction="column" m={`${pxToRem(10)} ${pxToRem(20)}`} align="center">
-      <Flex direction={'row'} wrap={'nowrap'} alignSelf={'flex-start'} justify={'space-between'} mb={pxToRem(20)}>
+    <Flex direction="column" m={`${pxToVh(10)} ${pxToVw(20)}`} align="center">
+      <Flex direction={'row'} wrap={'nowrap'} alignSelf={'flex-start'} justify={'space-between'} mb={pxToVh(20)}>
         <Box>
-          <Button h={pxToRem(40)} onClick={handleChangeStatus} isDisabled={!isCheckList.some(Boolean)}>Change Status</Button>
+          <Button h={pxToVh(40)} onClick={handleChangeStatus} isDisabled={!isCheckList.some(Boolean)}>Change Status</Button>
         </Box>
       </Flex>
         <Table variant="unstyled" size={'sm'}>
