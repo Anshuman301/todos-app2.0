@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/todos-app2.0/static/js/main.c9903f70.chunk.js",
-    "main.js.map": "/todos-app2.0/static/js/main.c9903f70.chunk.js.map",
+    "main.js": "/todos-app2.0/static/js/main.b8d9bcc8.chunk.js",
+    "main.js.map": "/todos-app2.0/static/js/main.b8d9bcc8.chunk.js.map",
     "runtime-main.js": "/todos-app2.0/static/js/runtime-main.03099500.js",
     "runtime-main.js.map": "/todos-app2.0/static/js/runtime-main.03099500.js.map",
-    "static/js/2.66d8003b.chunk.js": "/todos-app2.0/static/js/2.66d8003b.chunk.js",
-    "static/js/2.66d8003b.chunk.js.map": "/todos-app2.0/static/js/2.66d8003b.chunk.js.map",
+    "static/js/2.c6ad8bd6.chunk.js": "/todos-app2.0/static/js/2.c6ad8bd6.chunk.js",
+    "static/js/2.c6ad8bd6.chunk.js.map": "/todos-app2.0/static/js/2.c6ad8bd6.chunk.js.map",
     "static/js/3.0d9b958a.chunk.js": "/todos-app2.0/static/js/3.0d9b958a.chunk.js",
     "static/js/3.0d9b958a.chunk.js.map": "/todos-app2.0/static/js/3.0d9b958a.chunk.js.map",
     "index.html": "/todos-app2.0/index.html",
-    "static/js/2.66d8003b.chunk.js.LICENSE.txt": "/todos-app2.0/static/js/2.66d8003b.chunk.js.LICENSE.txt"
+    "static/js/2.c6ad8bd6.chunk.js.LICENSE.txt": "/todos-app2.0/static/js/2.c6ad8bd6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.03099500.js",
-    "static/js/2.66d8003b.chunk.js",
-    "static/js/main.c9903f70.chunk.js"
+    "static/js/2.c6ad8bd6.chunk.js",
+    "static/js/main.b8d9bcc8.chunk.js"
   ]
 }
